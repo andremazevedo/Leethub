@@ -1,64 +1,45 @@
 #include <iostream>
 #include <vector>
+#include <list>
 using namespace std;
 
-ostream& operator<<(ostream& os, const vector<int>& vec)
-{
-    os << "[";
-    for (size_t i = 0; i < vec.size(); ++i) {
-        os << vec[i];
-        if (i < vec.size() - 1) {
-            os << ",";
-        }
-    }
-    os << "]";
-    return os;
-}
- 
 class MyHashMap {
-    vector<vector<pair<int,int>>> buckets;
+private:
+    vector<list<pair<int, int>>> hashmap;
+    int size = 1013;
 
 public:
     MyHashMap() {
-        buckets = vector<vector<pair<int,int>>>(1000);
+        hashmap.resize(size);
     }
     
     void put(int key, int value) {
-        int i = hash(key);
-        vector<pair<int,int>>::iterator it = contains(key);
-        if (it != buckets[i].end())
-            it->second = value;
-        else
-            buckets[i].push_back(pair<int,int>(key, value)); 
+        auto& bucket = hashmap[key % size];
+        for (auto& p : bucket) {
+            if (p.first == key) {
+                p.second = value;
+                return;
+            }
+        }
+        bucket.emplace_front(key,value);
     }
     
     int get(int key) {
-        int i = hash(key);
-        vector<pair<int,int>>::iterator it = contains(key);
-        if (it != buckets[i].end())
-            return it->second;
-        else
-            return -1; 
+        const auto& bucket = hashmap[key % size];
+        for (const auto& p : bucket)
+            if (p.first == key)
+                return p.second;
+        return -1;
     }
     
     void remove(int key) {
-        int i = hash(key);
-        vector<pair<int,int>>::iterator it = contains(key);
-        if (it != buckets[i].end())
-            buckets[i].erase(it);
-    }
-
-    vector<pair<int,int>>::iterator contains(int key) {
-        int i = hash(key);
-        vector<pair<int,int>>::iterator it;
-        for(it = buckets[i].begin(); it != buckets[i].end(); ++it)
-            if (it->first == key)
-                break;
-        return it;
-    }
-
-    int hash(int key) {
-        return key % 1000;
+        auto &bucket = hashmap[key % size];
+        for (auto it = bucket.begin(); it != bucket.end(); it++) {
+            if (it->first == key) {
+                bucket.erase(it);
+                return;
+            }
+        }
     }
 };
 
