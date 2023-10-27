@@ -25,7 +25,7 @@ int main() {
     
     cout << "Input: nums = " << nums << ", target = " << target << endl;
     
-    cout << "output: " << Solution().twoSum(nums, target) << endl;
+    cout << "Output: " << Solution().twoSum(nums, target) << endl;
 
     return 0;
 }
