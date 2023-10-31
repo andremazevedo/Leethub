@@ -21,7 +21,7 @@ int main() {
     
     cout << "Input: n = " << n << endl;
     
-    cout << "output: " << boolalpha << Solution().isPowerOfFour(n) << endl;
+    cout << "Output: " << boolalpha << Solution().isPowerOfFour(n) << endl;
 
     return 0;
 }
