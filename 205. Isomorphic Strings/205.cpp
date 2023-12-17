@@ -41,7 +41,7 @@ int main() {
     
     cout << "Input: s = \"" << s << "\", t = \"" << t << "\"" << endl;
     
-    cout << "output: " << boolalpha << Solution().isIsomorphic(s, t) << endl;
+    cout << "Output: " << boolalpha << Solution().isIsomorphic(s, t) << endl;
 
     return 0;
 }

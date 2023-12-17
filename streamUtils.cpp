@@ -92,26 +92,48 @@ ListNode* makeList(const std::vector<int>& vec)
     return head;
 }
 
-// std::ostream& operator<<(std::ostream& os, const TreeNode* root)
-// {
-//     std::queue<TreeNode*> q;
-//     q.push(root);
+std::ostream& operator<<(std::ostream& os, const TreeNode* root)
+{
+    std::queue<TreeNode*> q;
+    os << "[";
 
-//     while (!q.empty()) {
-//         TreeNode *node = q.front();
-//         q.pop();
+    if (root != nullptr) {
+        os << root->val;
+        if (root->left != nullptr || root->right != nullptr) {
+            q.push((TreeNode*) root);
+        }
+    }
 
-//         if (node->left) {
-//             q.push(node->left);
-//         }
+    while (!q.empty()) {
+        TreeNode *node = q.front();
+        q.pop();
 
-//         if (node->right) {
-//             q.push(node->right);
-//         }
-//     }
+        if (node->left != nullptr) {
+            if (node->left->left != nullptr || node->left->right != nullptr) {
+                q.push(node->left);
+            }
+            os << ",";
+            os << node->left->val;
+        } else {
+            os << ",";
+            os << "null";
+        }
 
-//     return os;
-// }
+        if (node->right != nullptr) {
+            if (node->right->left != nullptr || node->right->right != nullptr) {
+                q.push(node->right);
+            }
+            os << ",";
+            os << node->right->val;
+        } else if (!q.empty()) {
+            os << ",";
+            os << "null";
+        }
+    }
+
+    os << "]";
+    return os;
+}
 
 TreeNode* makeTree(const std::vector<int>& vec)
 {

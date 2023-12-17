@@ -36,7 +36,7 @@ std::ostream& operator<<(std::ostream& os, const ListNode* head);
 
 ListNode* makeList(const std::vector<int>& vec);
 
-// std::ostream& operator<<(std::ostream& os, const TreeNode* root);
+std::ostream& operator<<(std::ostream& os, const TreeNode* root);
 
 TreeNode* makeTree(const std::vector<int>& vec);
 
