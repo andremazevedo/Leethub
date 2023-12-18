@@ -32,7 +32,7 @@ int main() {
     
     cout << "Input: n = " << n << endl;
     
-    cout << "output: " << boolalpha << Solution().isHappy(n) << endl;
+    cout << "Output: " << boolalpha << Solution().isHappy(n) << endl;
 
     return 0;
 }

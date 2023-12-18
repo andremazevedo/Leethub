@@ -56,7 +56,7 @@ int main() {
     
     cout << "Input: m = " << m << ", n = " << n << endl;
     
-    cout << "output: " << Solution().uniquePaths(m, n) << endl;
+    cout << "Output: " << Solution().uniquePaths(m, n) << endl;
 
     return 0;
 

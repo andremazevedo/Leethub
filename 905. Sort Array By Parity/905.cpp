@@ -21,7 +21,7 @@ int main() {
     
     cout << "Input: nums = " << nums << endl;
     
-    cout << "output: " << Solution().sortArrayByParity(nums) << endl;
+    cout << "Output: " << Solution().sortArrayByParity(nums) << endl;
 
     return 0;
 }
