@@ -55,7 +55,7 @@ int main() {
     
     cout << "Input: stones = " << stones << endl;
     
-    cout << "output:" << Solution().canCross(stones) << endl;
+    cout << "Output:" << Solution().canCross(stones) << endl;
 
     return 0;
 

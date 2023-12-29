@@ -1,4 +1,3 @@
-#include <iostream>
 #include <stack>
 
 #include "../streamUtils.hpp"
@@ -26,7 +25,7 @@ int main() {
     
     cout << "Input: s = \"" << s << "\"" << endl;
     
-    cout << "output: \"" << Solution().reverseWords(s) << "\"" << endl;
+    cout << "Output: \"" << Solution().reverseWords(s) << "\"" << endl;
 
     return 0;
 }
