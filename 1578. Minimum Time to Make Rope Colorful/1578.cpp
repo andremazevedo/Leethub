@@ -27,7 +27,6 @@ public:
     }
 };
 
-
 int main() {
 
     string colors = "abaac";
