@@ -23,7 +23,7 @@ int main() {
     
     cout << "Input: nums = " << nums << endl;
     
-    cout << "output: " << Solution().singleNumber(nums) << endl;
+    cout << "Output: " << Solution().singleNumber(nums) << endl;
 
     return 0;
 }

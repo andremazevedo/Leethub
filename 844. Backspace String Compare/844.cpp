@@ -48,7 +48,7 @@ int main() {
     
     cout << "Input: s = \"" << s << "\", t = \"" << t << "\"" << endl;
     
-    cout << "output: " << boolalpha << Solution().backspaceCompare(s, t) << endl;
+    cout << "Output: " << boolalpha << Solution().backspaceCompare(s, t) << endl;
 
     return 0;
 }

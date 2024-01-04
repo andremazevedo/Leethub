@@ -46,7 +46,7 @@ int main() {
     
     cout << "Input: s = " << s << endl;
     
-    cout << "output: " << Solution().minDeletions(s) << endl;
+    cout << "Output: " << Solution().minDeletions(s) << endl;
 
     return 0;
 }
