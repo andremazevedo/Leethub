@@ -65,6 +65,19 @@ std::ostream& operator<<(std::ostream& os, const std::vector<std::string>& vec)
     return os;
 }
 
+std::ostream& operator<<(std::ostream& os, const std::vector<TreeNode*>& vec)
+{
+     os << "[";
+    for (size_t i = 0; i < vec.size(); ++i) {
+        os << vec[i]->val;
+        if (i < vec.size() - 1) {
+            os << ",";
+        }
+    }
+    os << "]";
+    return os;
+}
+
 std::ostream& operator<<(std::ostream& os, const ListNode* head)
 {
     os << "[";
@@ -154,7 +167,7 @@ TreeNode* makeTree(const std::vector<int>& vec)
             q.push(node->left);
         }
 
-        if (vec[i + 1]) {
+        if (i + 1 < vec.size() && vec[i + 1]) {
             node->right = new TreeNode(vec[i + 1]);
             q.push(node->right);
         }

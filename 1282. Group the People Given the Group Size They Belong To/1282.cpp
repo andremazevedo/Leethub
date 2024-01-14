@@ -1,7 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <unordered_map>
-
 #include "../streamUtils.hpp"
 
 using namespace std;
@@ -27,7 +23,6 @@ public:
 
 int main() {
 
-    // vector<int> groupSizes = {3,3,3,3,3,1,3};
     vector<int> groupSizes = {2,1,3,3,3,2};
     
     cout << "Input: groupSizes = " << groupSizes << endl;

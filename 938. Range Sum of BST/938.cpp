@@ -14,17 +14,14 @@ public:
             s.pop();
 
             if (node !=  nullptr) {
-                if (low <= node->val && node->val <= high) {
+                if (low <= node->val && node->val <= high)
                     sum += node->val;
-                }
 
-                if (low <= node->val) {
+                if (low <= node->val)
                     s.push(node->left);
-                }
 
-                if (node->val <= high) {
+                if (node->val <= high)
                     s.push(node->right);
-                }
             }
         } 
 
@@ -35,10 +32,10 @@ public:
 int main() {
 
     TreeNode *root = makeTree({10,5,15,3,7,NULL,18});
-    int low = 7; 
+    int low = 7;
     int high = 15;
     
-    cout << "Input: root = " << root << ", low = " << low << ", high = " << high  << endl;
+    cout << "Input: root = " << root << ", low = " << low << ", high = " << high << endl;
     
     cout << "Output: " << Solution().rangeSumBST(root, low, high) << endl;
 

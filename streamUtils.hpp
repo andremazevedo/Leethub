@@ -6,6 +6,8 @@
 #include <stack>
 #include <queue>
 #include <algorithm>
+#include <unordered_set>
+#include <unordered_map>
 
 struct ListNode {
     int val;
@@ -33,6 +35,8 @@ std::ostream& operator<<(std::ostream& os, const std::vector<std::vector<int>>& 
 std::ostream& operator<<(std::ostream& os, const std::vector<std::vector<double>>& matrix);
 
 std::ostream& operator<<(std::ostream& os, const std::vector<std::string>& vec);
+
+std::ostream& operator<<(std::ostream& os, const std::vector<TreeNode*>& vec);
 
 std::ostream& operator<<(std::ostream& os, const ListNode* head);
 
