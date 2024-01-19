@@ -1,5 +1,4 @@
 #include "../streamUtils.hpp"
-#include <unordered_map>
 
 using namespace std;
 
@@ -26,7 +25,7 @@ int main() {
     
     cout << "Input: n = " << n << endl;
     
-    cout << "output: " << Solution().integerBreak(n) << endl;
+    cout << "Output: " << Solution().integerBreak(n) << endl;
 
     return 0;
 }
