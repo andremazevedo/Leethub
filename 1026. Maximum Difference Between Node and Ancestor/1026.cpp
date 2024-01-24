@@ -3,13 +3,6 @@
 using namespace std;
 
 class Solution {
-    
-
-public:
-    int maxAncestorDiff(TreeNode* root) {
-        return dfs(root);
-    }
-
 private:
     vector<TreeNode*> ancestors;
     int max = 0;
@@ -32,12 +25,16 @@ private:
 
         return max;
     }
+
+public:
+    int maxAncestorDiff(TreeNode* root) {
+        return dfs(root);
+    }
 };
 
 int main() {
 
     TreeNode *root = makeTree({8,3,10,1,6,NULL,14,NULL,NULL,4,7,13});
-    int start = 3;
     
     cout << "Input: root = " << root << endl;
     
