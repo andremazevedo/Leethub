@@ -25,7 +25,7 @@ int main() {
     vector<int> nums = {1,3,4,8,7,9,3,5,1};
     int k = 4;
     
-    cout << "Input: nums = " << nums << ", n = " << k << endl;
+    cout << "Input: nums = " << nums << ", k = " << k << endl;
     
     cout << "Output: "<< Solution().divideArray(nums, k) << endl;
 
