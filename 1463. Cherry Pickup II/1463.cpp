@@ -46,7 +46,6 @@ public:
 
 int main() {
 
-    string s = "";
     vector<vector<int>> grid = {{3,1,1},{2,5,1},{1,5,5},{2,1,1}};
     
     cout << "Input: grid = " << grid << endl;
