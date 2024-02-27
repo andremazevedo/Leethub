@@ -32,10 +32,8 @@ public:
 
 int main() {
 
-    // string s = "egg";
-    // string t = "add";
-    string s = "badc";
-    string t = "baba";
+    string s = "egg";
+    string t = "add";
     
     cout << "Input: s = \"" << s << "\", t = \"" << t << "\"" << endl;
     
