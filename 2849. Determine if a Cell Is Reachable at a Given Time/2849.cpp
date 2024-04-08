@@ -13,9 +13,9 @@ int main() {
 
     int sx = 2, sy = 4, fx = 7, fy = 7, t = 6;
     
-    cout << "Input: sx = " << sx << ", sy = " << sy << ", fx = " << sy << ", fy = " << sy << ", t = " << t << endl;
+    printInput(getName(sx), sx, getName(sy), sy, getName(fx), fx, getName(fy), sy, getName(t), t);
     
-    cout << "Output: " << boolalpha << Solution().isReachableAtTime(sx,sy,fx,fy,t) << endl;
+    printOutput(Solution().isReachableAtTime(sx,sy,fx,fy,t));
 
     return 0;
 }

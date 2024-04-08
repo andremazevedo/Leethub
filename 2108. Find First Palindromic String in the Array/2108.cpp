@@ -24,9 +24,9 @@ int main() {
 
     vector<string> words = {"abc","car","ada","racecar","cool"};
     
-    cout << "Input: nums = " << words << endl;
+    printInput(getName(words), words);
     
-    cout << "Output: " << Solution().firstPalindrome(words) << endl;
+    printOutput(Solution().firstPalindrome(words));
 
     return 0;
 }

@@ -5,25 +5,20 @@ using namespace std;
 class Solution {
 public:
     bool isIsomorphic(string s, string t) {
-        unordered_map<char,char> hashmap;
-        unordered_set<char> hashset;
+        unordered_map<char, char> hashmapS, hashmapT;
 
-        if (s.size() != t.size()) {
+        if (s.length() != t.length())
             return false;
-        }
 
-        for (int i = 0; i < s.size(); i++) {
-            if (hashmap.count(s[i]) > 0) {
-                if (hashmap[s[i]] != t[i]) {
-                    return false;
-                }
-            }
-            else if (hashset.count(t[i]) > 0) {
+        for (int i = 0; i < s.length(); i++) {
+            if (hashmapS.count(s[i]) > 0 && hashmapS[s[i]] != t[i])
                 return false;
-            }
             
-            hashmap[s[i]] = t[i];
-            hashset.insert(t[i]);
+            if (hashmapT.count(t[i]) > 0 && hashmapT[t[i]] != s[i])
+                return false;
+
+            hashmapS[s[i]] = t[i];
+            hashmapT[t[i]] = s[i];
         }
         
         return true;
@@ -35,9 +30,9 @@ int main() {
     string s = "egg";
     string t = "add";
     
-    cout << "Input: s = \"" << s << "\", t = \"" << t << "\"" << endl;
+    printInput(getName(s), s, getName(t), t);
     
-    cout << "Output: " << boolalpha << Solution().isIsomorphic(s, t) << endl;
+    printOutput(Solution().isIsomorphic(s, t));
 
     return 0;
 }
