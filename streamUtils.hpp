@@ -8,6 +8,7 @@
 #include <algorithm>
 #include <unordered_set>
 #include <unordered_map>
+#include <cmath>
 #include <cctype>
 
 #define getName(VariableName) # VariableName
