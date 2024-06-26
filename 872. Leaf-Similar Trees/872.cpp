@@ -51,12 +51,12 @@ public:
 
 int main() {
 
-    TreeNode *root1 = makeTree({3,5,1,6,7,4,2,NULL,NULL,NULL,NULL,NULL,NULL,9,11,NULL,NULL,8,10});
-    TreeNode *root2 = makeTree({3,5,1,6,2,9,8,NULL,NULL,7,4});
+    TreeNode *root1 = makeTree({3,5,1,6,2,9,8,nullopt,nullopt,7,4});
+    TreeNode *root2 = makeTree({3,5,1,6,7,4,2,nullopt,nullopt,nullopt,nullopt,nullopt,nullopt,9,8});
     
-    cout << "Input: root1 = " << root1 << ", root2 = " << root2 << endl;
+    printInput(getName(root1), root1, getName(root2), root2);
     
-    cout << "Output: " << boolalpha << Solution().leafSimilar(root1, root2) << endl;
+    printOutput(Solution().leafSimilar(root1, root2));
 
     return 0;
 }

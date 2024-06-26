@@ -2,6 +2,7 @@
 #define STREAMUTILS_HPP
 
 #include <iostream>
+#include <optional>
 #include <vector>
 #include <stack>
 #include <queue>
@@ -36,7 +37,7 @@ ListNode* makeList(const std::vector<int>& vec);
 
 std::ostream& operator<<(std::ostream& os, const TreeNode* root);
 
-TreeNode* makeTree(const std::vector<int>& vec);
+TreeNode* makeTree(const std::vector<std::optional<int>>& vec);
 
 template<typename T>
 void printArg(const T& arg) {

@@ -29,81 +29,84 @@ ListNode* makeList(const std::vector<int>& vec)
 
 std::ostream& operator<<(std::ostream& os, const TreeNode* root)
 {
+    std::vector<std::optional<int>> vec;
     std::queue<TreeNode*> q;
-    os << "[";
 
     if (root != nullptr) {
-        os << root->val;
-        if (root->left != nullptr || root->right != nullptr) {
-            q.push((TreeNode*) root);
-        }
+        vec.push_back(root->val);
+        q.push((TreeNode*)root);
     }
 
     while (!q.empty()) {
         TreeNode *node = q.front();
         q.pop();
 
-        if (node->left != nullptr) {
-            if (node->left->left != nullptr || node->left->right != nullptr) {
-                q.push(node->left);
-            }
-            os << ",";
-            os << node->left->val;
+        if (node->left) {
+            vec.push_back(node->left->val);
+            q.push(node->left);
         } else {
-            os << ",";
-            os << "null";
+            vec.push_back(std::nullopt);
         }
 
-        if (node->right != nullptr) {
-            if (node->right->left != nullptr || node->right->right != nullptr) {
-                q.push(node->right);
-            }
-            os << ",";
-            os << node->right->val;
-        } else if (!q.empty()) {
-            os << ",";
-            os << "null";
+        if (node->right) {
+            vec.push_back(node->right->val);
+            q.push(node->right);
+        } else {
+            vec.push_back(std::nullopt);
         }
     }
 
+    while (!vec.empty() && !vec.back().has_value()) {
+        vec.pop_back();
+    }
+
+    os << "[";
+    for (size_t i = 0; i < vec.size(); ++i) {
+        if (vec[i].has_value()) {
+            os << vec[i].value();
+        } else {
+            os << "null";
+        }
+
+        if (i < vec.size() - 1) {
+            os << ",";
+        }
+    }
     os << "]";
     return os;
 }
 
-TreeNode* makeTree(const std::vector<int>& vec)
+TreeNode* makeTree(const std::vector<std::optional<int>>& vec)
 {
     TreeNode *root = nullptr;
     std::queue<TreeNode*> q;
 
-    if (!vec.empty()) {
-        root = new TreeNode(vec[0]);
-        q.push(root);
+    if (vec.empty()) {
+        return root;
     }
 
+    root = new TreeNode(vec.front().value());
+    q.push(root);
+
     for (int i = 1; i < vec.size(); i += 2) {
+        TreeNode *left = nullptr;
+        TreeNode *right = nullptr;
+
         TreeNode *node = q.front();
         q.pop();
 
-        if (vec[i]) {
-            node->left = new TreeNode(vec[i]);
-            q.push(node->left);
+        if (vec[i].has_value()) {
+            left = new TreeNode(vec[i].value());
+            q.push(left);
         }
+        node->left = left;
 
-        if (i + 1 < vec.size() && vec[i + 1]) {
-            node->right = new TreeNode(vec[i + 1]);
-            q.push(node->right);
+        if (i + 1 < vec.size() && vec[i + 1].has_value()) {
+            right = new TreeNode(vec[i + 1].value());
+            q.push(right);
         }
+        node->right = right;
     }
 
     return root;
 }
-
-// void input()
-// {
-//     std::cout << "Input: " << std::endl;
-// }
-
-// void output()
-// {
-//     std::cout << "Output: ";
-// }

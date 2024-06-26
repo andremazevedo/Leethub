@@ -31,7 +31,7 @@ public:
 
 int main() {
 
-    TreeNode* root = makeTree({3,9,20,NULL,NULL,15,7});
+    TreeNode* root = makeTree({3,9,20,nullopt,nullopt,15,7});
 
     printInput(getName(root), root);
     
