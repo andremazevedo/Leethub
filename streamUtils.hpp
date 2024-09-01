@@ -14,8 +14,11 @@
 #include <limits.h>
 #include <cmath>
 #include <cctype>
+#include <sstream>
 
 #define getName(VariableName) # VariableName
+
+using namespace std;
 
 struct ListNode {
     int val;
@@ -32,6 +35,24 @@ struct TreeNode {
     TreeNode() : val(0), left(nullptr), right(nullptr) {}
     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+};
+
+// Definition for a Node.
+class Node {
+public:
+    int val;
+    vector<Node*> children;
+
+    Node() {}
+
+    Node(int _val) {
+        val = _val;
+    }
+
+    Node(int _val, vector<Node*> _children) {
+        val = _val;
+        children = _children;
+    }
 };
 
 std::ostream& operator<<(std::ostream& os, const ListNode* head);
@@ -99,12 +120,8 @@ void printName(const T& arg);
 template<typename T, typename... Types>
 void printName(const T& arg, const Types&... args);
 
-// void printInput();
-
 template<typename T, typename... Types>
 void printInput(const T& arg, const Types&... args);
-
-// void printOutput();
 
 template<typename T> void printOutput(T arg);
 
@@ -152,11 +169,28 @@ void printName(const T& arg, const Types&... args)
     printVal(args...);
 }
 
+template<typename A, typename B>
+void printInputArg(const A& name, const B& val)
+{
+    std::cout << name << " = ";
+    printArg(val);
+    std::cout << std::endl;
+}
+
+template<typename A, typename B, typename... Types>
+void printInputArg(const A& name, const B& val, const Types&... args)
+{
+    std::cout << name << " = ";
+    printArg(val);
+    std::cout << ", ";
+    printInputArg(args...);
+}
+
 template<typename T, typename... Types>
 void printInput(const T& arg, const Types&... args)
 {
     std::cout << "Input: ";
-    printName(arg, args...);
+    printInputArg(arg, args...);
 }
 
 template<typename T> void printOutput(T arg) 
