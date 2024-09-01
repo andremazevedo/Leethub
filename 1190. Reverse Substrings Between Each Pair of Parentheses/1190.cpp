@@ -35,7 +35,7 @@ public:
 
         return answer;
     }
-};;
+};
 
 int main() {
 
